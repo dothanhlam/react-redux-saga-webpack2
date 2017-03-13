@@ -5,8 +5,6 @@ import logger from '../dev/logger';
 import rootSaga from '../sagas';
 
 const configureStore = (isProduction, instrument) => {
-    // Creating store
-    let store = null;
     let saga = createSagaMiddleware();
 
     if (isProduction) {
@@ -16,7 +14,6 @@ const configureStore = (isProduction, instrument) => {
             runSaga: saga.run(rootSaga),
         };
     }
-
     return {
         ...createStore( rootReducer,
             compose(applyMiddleware(saga, logger), instrument())),

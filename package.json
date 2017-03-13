@@ -1,6 +1,6 @@
 {
   "name": "react-redux-saga-webpack2",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "boilerplate",
   "main": "index.js",
   "scripts": {
