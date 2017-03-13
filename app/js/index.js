@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
 //saga
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from 'sagas';
@@ -37,16 +36,16 @@ const saga = createSagaMiddleware();
 let store = null;
 
 if (isProduction) {
-  const middleware = applyMiddleware(thunk, saga);
+  const middleware = applyMiddleware(saga);
 
   store = createStore(
     rootReducer,
     middleware
   );
 } else {
-  // In development mode beside thunk
+
   // logger and DevTools are added
-  const middleware = applyMiddleware(thunk, saga, logger);
+  const middleware = applyMiddleware(saga, logger);
   const enhancer = compose(
     middleware,
     DevTools.instrument()

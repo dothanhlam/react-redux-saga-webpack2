@@ -141,7 +141,7 @@ module.exports = {
       'react-redux',
       'react-router',
       'react',
-      'redux-thunk',
+      'redux-saga',
       'redux',
     ],
   },
