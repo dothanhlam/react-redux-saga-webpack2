@@ -1,4 +1,4 @@
-import { put, call } from 'redux-saga/effects';
+import {put, call} from 'redux-saga/effects';
 import api from 'api';
 import {
     TEST_ASYNC_ACTION_START,
@@ -8,13 +8,7 @@ import {
 
 export default function *asyncSaga() {
     const data = yield call(api.testAsync);
-
-    if (data) {
-        yield put(testAsyncSuccess(data));
-    }
-    else {
-        yield put(testAsyncError(data));
-    }
+    yield put(data ? testAsyncSuccess(data) : testAsyncError(data));
 }
 
 function testAsyncSuccess(data) {
